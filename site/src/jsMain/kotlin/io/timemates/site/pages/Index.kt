@@ -1,6 +1,7 @@
 package io.timemates.site.pages
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
@@ -9,7 +10,9 @@ import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaGithub
 import com.varabyte.kobweb.silk.components.icons.fa.FaTelegram
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.theme.colors.getColorMode
 import io.timemates.site.components.layouts.PageLayout
+import io.timemates.site.components.style.boxShadow
 import io.timemates.site.components.widgets.LinkButton
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.percent
@@ -33,14 +36,18 @@ fun HomePage() {
         H1 {
             SpanText(
                 "TimeMates",
-                modifier = Modifier.fontSize(72.px)
+                modifier = Modifier.fontSize(50.px)
+                    .margin(leftRight = 16.px)
             )
         }
 
         SpanText(
             "The ultimate tool for organizing time and tasks, " +
                 "collaborating with team members, and tracking progress.",
-            modifier = Modifier.color(Color.gray).fontSize(24.px)
+            modifier = Modifier
+                .color(Color.gray)
+                .fontSize(20.px)
+                .margin(leftRight = 16.px)
         )
 
         Row(modifier = Modifier.margin(32.px)) {
