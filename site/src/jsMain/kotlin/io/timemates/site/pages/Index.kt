@@ -105,7 +105,7 @@ fun HomePage() {
             )
 
             FeatureItem(
-                imageName = "illustrations/charts-pie-and-bars.svg",
+                imageName = "illustrations/about-us-about-our-team.svg",
                 title = "Be better",
                 "Improve processes with our" +
                     " integrations system",
@@ -152,8 +152,11 @@ fun HomePage() {
                 modifier = Modifier.size(120.px)
             )
             H2 { Text("We're still in developing") }
-            SpanText("Currently, we're working on the first version of TimeMates application." +
-                " So, you can't try it at the moment, unfortunately.")
+            SpanText(
+                "Currently, we're working on the first version of TimeMates application." +
+                " So, you can't try it at the moment, unfortunately.",
+                modifier = Modifier.color(Color.gray)
+            )
         }
 
 
