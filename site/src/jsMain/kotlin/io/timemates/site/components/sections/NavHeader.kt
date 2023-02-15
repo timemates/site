@@ -93,16 +93,17 @@ fun NavHeader() {
             ) {
                 FaGithub()
             }
-            ThemedButton(
-                onClick = { colorMode = colorMode.opposite() },
-                BUTTON_MARGIN,
-                shape = ButtonShape.CIRCLE,
-            ) {
-                when (colorMode) {
-                    ColorMode.DARK -> FaSun()
-                    ColorMode.LIGHT -> FaMoon()
-                }
-            }
+            // temporarily removed
+//            ThemedButton(
+//                onClick = { colorMode = colorMode.opposite() },
+//                BUTTON_MARGIN,
+//                shape = ButtonShape.CIRCLE,
+//            ) {
+//                when (colorMode) {
+//                    ColorMode.DARK -> FaSun()
+//                    ColorMode.LIGHT -> FaMoon()
+//                }
+//            }
         }
     }
 }

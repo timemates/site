@@ -36,6 +36,7 @@ fun PageLayout(
         ) {
             NavHeader()
             content()
+            Footer()
         }
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
         //Footer(Modifier.align(Alignment.Center).gridRowStart(2).gridRowEnd(3))
