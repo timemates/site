@@ -1,22 +1,27 @@
 package io.timemates.site.pages
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.icons.fa.FaArrowDown
 import com.varabyte.kobweb.silk.components.icons.fa.FaArrowRight
+import com.varabyte.kobweb.silk.components.icons.fa.FaGithub
 import com.varabyte.kobweb.silk.components.icons.fa.FaTelegram
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.getColorMode
-import com.varabyte.kobweb.silk.theme.colors.rememberColorMode
 import io.timemates.site.components.layouts.PageLayout
 import io.timemates.site.components.style.boxShadow
 import io.timemates.site.components.widgets.LinkButton
@@ -29,7 +34,6 @@ fun HomePage() {
     PageLayout(
         title = "TimeMates",
     ) {
-
         Image(
             "icon.gif",
             modifier = Modifier.borderRadius(10.percent)
@@ -47,7 +51,7 @@ fun HomePage() {
 
         SpanText(
             "The ultimate tool for organizing time and tasks, " +
-                "collaborating with team members, and tracking progress.",
+                "collaborating with team members, and tracking progress inspired by Pomodoro technique.",
             modifier = Modifier
                 .color(Color.gray)
                 .fontSize(20.px)
@@ -75,90 +79,62 @@ fun HomePage() {
             }
         }
 
-
-        Hr(
-            Modifier.borderTop(
-                1.px, LineStyle.Dashed, Color.gray
-            )
-                .margin(topBottom = 6.em)
-                .fillMaxWidth(15.percent).toAttrs()
+        FaArrowDown(
+            modifier = Modifier.margin(top = 3.em, bottom = 2.em)
+                .fillMaxWidth(15.percent)
         )
 
-        H1 {
-            SpanText(
-                "Why TimeMates?",
-                modifier = Modifier.margin(top = 9.em)
-            )
-        }
-
-        SimpleGrid(
-            modifier = Modifier
-                .id("why-timemates")
-                .margin(leftRight = 4.em, topBottom = 1.em),
-            numColumns = numColumns(1, md = 4)
+        Row(
+            modifier = Modifier.fillMaxWidth(70.percent)
+                .borderRadius(16.px)
+                .boxShadow(getColorMode())
+                .padding(1.em)
+                .margin(topBottom = 4.em),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            FeatureItem(
-                imageName = "illustrations/being-creative.svg",
-                title = "Be creative",
-                "Focus on your ideas, don't think about" +
-                    " appropriate time",
-            )
+            Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.Center) {
+                Image(
+                    modifier = Modifier.height(12.em)
+                        .displayUntil(Breakpoint.MD)
+                        .margin(left = 16.px),
+                    src = "app-preview.png",
+                )
+                H2(Modifier.id("download").toAttrs()) {
+                    Text("Try TimeMates")
+                }
+                SpanText(
+                    "We're currently in the process of creating the first version of the TimeMates application, " +
+                        "which unfortunately means it's not ready for testing just yet. However, we're excited to let" +
+                        " you know that it will be available on Web, Desktop, and Android platforms once it's " +
+                        "launched. Stay tuned for updates on its availability!",
+                    modifier = Modifier.color(Color.gray).fontSize(16.px).textAlign(TextAlign.Start),
+                )
+                LinkButton(
+                    modifier = Modifier.margin(top = 16.px).displayIf(Breakpoint.MD),
+                    text = "Check progress",
+                    path = "https://github.com/timemates/app",
+                ) {
+                    FaGithub(modifier = Modifier.margin(right = 16.px))
+                }
 
-            FeatureItem(
-                imageName = "illustrations/about-us-about-our-team.svg",
-                title = "Be better",
-                "Improve processes with our" +
-                    " integrations system",
-            )
-
-            FeatureItem(
-                imageName = "illustrations/social-media-discussion.svg",
-                title = "Better way of communication",
-                "Synchronize" +
-                    " people together and optimize their time and" +
-                    " efforts",
-            )
-
-            FeatureItem(
-                imageName = "illustrations/charts-pie-and-bars.svg",
-                title = "Achieve high performance",
-                "Setup everything for your needs," +
-                    " get results immediately",
-            )
-        }
-
-        Hr(
-            Modifier.borderTop(
-                1.px, LineStyle.Dashed, Color.gray
-            )
-                .margin(topBottom = 6.em)
-                .fillMaxWidth(15.percent).toAttrs()
-        )
-
-        H1(Modifier.id("download").toAttrs()) {
-            Text("Try it out!")
-        }
-
-        Column(
-            modifier = Modifier
-                .padding(3.em)
-                .textAlign(TextAlign.Center)
-                .margin(bottom = 6.em, left = 3.em, right = 3.em)
-                .maxWidth(500.px),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+                LinkButton(
+                    modifier = Modifier.margin(top = 16.px)
+                        .displayUntil(Breakpoint.MD)
+                        .fillMaxWidth(),
+                    text = "Check progress",
+                    path = "https://github.com/timemates/app",
+                ) {
+                    FaGithub(modifier = Modifier.margin(right = 16.px))
+                }
+            }
             Image(
-                "illustrations/coding.svg",
-                modifier = Modifier.size(120.px)
-            )
-            H2 { Text("We're still in developing") }
-            SpanText(
-                "Currently, we're working on the first version of TimeMates application." +
-                " So, you can't try it at the moment, unfortunately.",
-                modifier = Modifier.color(Color.gray)
+                modifier = Modifier.height(12.em)
+                    .align(Alignment.CenterVertically)
+                    .displayIf(Breakpoint.MD)
+                    .margin(left = 16.px),
+                src = "app-preview.png",
             )
         }
-
 
     }
 }

@@ -1,8 +1,10 @@
 package io.timemates.site
 
 import androidx.compose.runtime.*
+import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
@@ -27,6 +29,7 @@ fun initSilk(ctx: InitSilkContext) {
         Modifier.fontFamily(
 	    "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
             "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif",
+            "Inter",
         )
     }
 }
